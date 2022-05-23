@@ -1,0 +1,23 @@
+\chapter{Esettanulmány}
+\section{Felhasznált eszközök}
+A SysML v1-es részhez a Sparx Systems által fejlesztett Enterprise Architect eszközt használtam.
+A SysML v2-es részhez a SysML v2 Submission Team (SST) által kiadott pilot-implementation-t használtam, Jupyter notebook formájában.
+
+\section{SysML v2 telepítése}
+Mivel a SysML v2 még érte el az első hivatalos kiadását, ezért nincs is hozzá hivatalos telepítő.
+Ehelyett az SST havi rendszerességgel szolgáltat referencia implementációt GitHub-on keresztül\footnote{\url{https://github.com/Systems-Modeling/SysML-v2-Release}}.
+
+Önálló laborom végrehajtása során a nyelv jupyter notebookhoz integrált kerneljével ismerkedtem.
+A jupyter notebook egy interaktív felületet biztosító webszolgáltatás, ami képes Python kód futtatására.
+
+Ehhez a fejlesztők készítettek ugyan egy telepítő szkriptet, ami a Miniconda keretrendszer felhasználásával - egy ingyenes csomagkezelő és környezet menedzsment rendszer\footnote{\url{https://docs.conda.io/en/latest/miniconda.html}} - telepíti a felhasználó számára a SysML v2 jupyter kernelt.
+
+A mérés során fény derült azonban egy olyan hibára, hogy ha a számítógép tartalmaz több python könyvtárat, a miniconda által feltelepítetten kívül, akkor a jupyter szerver indítása után nem lehetséges kiválasztani a SysML kernelt ezáltal használhatatlanná téve azt.
+
+A probléma egyik megoldása, melyet a labor végrehajtása során alkalmaztam, hogy a jupyter notebookot Visual Studio Code-ban futtattam és így érdekes módon ki tudtam választani futtatási kernelnek a SysML implementációját.
+
+\section{Funkcionális dekompozíció}
+
+\section{Viselkedés modellezés}
+
+\section{Allokáció}

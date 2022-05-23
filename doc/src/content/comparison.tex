@@ -1,0 +1,53 @@
+%------------------------------------------------------------------------------
+\chapter{Összehasonlítás}
+%------------------------------------------------------------------------------
+\section{Modellezés}
+\subsection{Modellezési eszköztár}
+Modellalapú tesztelés fontos lépése a vizsgált rendszer modellezése a kívánt absztrakciós szinten, hogy ez alapján generáljunk teszteseteket, amelyek a rendszer működését ellenőrzik.
+
+
+Míg kisebb bonyolultságú projektekhez teljesen elegendő a GraphWalker által biztosított eszköztár, nagyobb volumenü projekteknél már korai fázisban elfogyhat az általa biztosított funcionalitás. 
+Nagyobb projektek esetében gyorsan kezelhetetlenné válhat a modellek karbantartása is.
+
+
+Ezzel szemben a Modicában ezek a problémák nem jelentkeznek. Az összetett állapotoknak köszönhetően nagyon magas absztrakciós szintek is egyszerűen és követhetően leírhatók/karbantarthatók.
+Továbba előnyt jelent számára, hogy MagicDraw modelleket is lehet importálni és támogatja a legfejlettebb követelménymenedzsment-rendzserekt.
+
+\subsection{Modellezési környezet}
+Manapság nagy figyelmet fordít mindenki az eszközök hordozhatóságára. A felhasználók számára kiemelt szempont a platformfüggetlen kialakítás.
+
+Ez legjobban a GraphWalkernél teljesül, hisz Java alapon készült. Továbba a szerkesztőfelület is teljesen platformfüggetlen webes alapon készült.
+
+A Modica jelen pillanatban csak Windows alapon érhető el, ami néhány felhasználónak probléma lehet. Mivel Eclipse alapon készült, ezért elképzelhető, hogy a közeljövőben több operációs rendszerhez is élvez támogatást.
+
+
+\section{Kódgenerálás}
+\subsection{Modellből absztrakt tesztesetel}
+GraphWalkerben a modellt egyszerűen tudjuk exportálni, majd a kapott JSON állományt hozzáfűzni a tesztelendő rendszer projektjéhez. Majd hasonló egyszerűséggel lehet az állományból adaptációs interfészeket készíteni.
+
+Modicában ez a folyamat teljesen automatizált és a tesztesetek komplexitása jobban alkalomhoz szabható.
+
+Míg GraphWalker a könnyű használhatósága és egyszerűsége vonzó lehet egyeseknek, sok esetben az hatékonyság és a pontosság rovására mehet. 
+
+\subsection{Tesztelendő rendszerhez illesztés}
+GraphWalkerben az adaptációs interfészek implementálával lehetséges a rendszerhez illszteni a tesztkörnyezetet. Az elkészített adapter osztályokkal egyidőben adható meg az elvárt teszt szekvencia generálás és a megállási kritérium is. 
+Ez a metodika komplex több modellből álló tesztállomány esetén a futási időt nagyban tudja befolyásolni. 
+
+Már négy megosztott állapotokkal rendelkező modell esetén is közelítőleg exponenciális nött a teljes él lefedettséghez szükséges futási idő. Ez nagyban köszönhető a randomizált generálásnak is, de a \emph{quick\_random} eljárással kicsit rövidíthető a futás ideje.
+
+Modica esetében ez a folyamat inkább a modellezésnél jön figyelembe. A modell belsejében kell meghatároznunk, melyik állapotban mit szeretnénk ellenőrizni és az éleken milyen eseményeket akarunk végrehajrani a rendszeren. 
+Ez abból a szempontól teszi nehézkessé a feladatot, hogy nem érjük el azokat a változókat illetve függvényeket, amiket végre akaruk hajtani. 
+
+Cserébe megkapjuk azt a szabadságot, hogy nem kell a teszt közvetlen futásakor a teszt szekvenciát generálni. Ezt megkapjuk alapból. 
+A teszt futtatásakor ez hatalmas időnyereség, hiszen a generált tesztek már csak végig futnak az adott utasítás sorozaton és nem kell azzal foglalkozni, hogy mi is jön az adott utasítás után.
+
+
+\section{További irányok}
+A Modicához tartozik egy elrejtett funcionalitás, a modellt és a teszt szekvenciákat képes JSON állományba átmenteni. További tanulmányaim során szeretnék foglalkozni azzal, 
+hogy a Modica projekekhez készítsek egy, a GraphWalker-hez hasonló automatizált adapter interfész generáló szoftvert, ami képes feldolgozni a generált szekvenciákat és azok alapján 
+tesztet futtatni az adapter osztályokon.
+
+Nem mellesleg érdekes lehet már az egyetemen meglévő MagicDraw modelleket Modicába importálni és megvizsgálni milyen teszteseteket lehet belőle generálni.
+
+\section{Összefoglalás}
+A félév során a modellalapú teszteléssel foglalkoztam és ezen belül két eszközt vizsgáltam, a GraphWalker-t és a Modica-t. Az eszközök minél jobb összehasonlítása végett egy meglévő esettanulmányon keresztül próbáltam ki és haszonlítottam össze a két eszköz képességeit.
