@@ -1,11 +1,8 @@
 package Gamma{
 	package Definitions{
-		
+		part gammaLogic : PartDefinitions::'Gamma Statechart Composition Framework';
 		package PartDefinitions{
 			import ActionDefinitions::*;
-			
-			part gammaLogic : 'Gamma Statechart Composition Framework';
-			
 			part def 'Gamma Statechart Composition Framework'{
 				part validation : 'Model Validation functionality';
 				part modelIntegration : 'Model Integration functionality';
@@ -14,14 +11,14 @@ package Gamma{
 			}
 			
 			part def 'Model Integration functionality'{
-				
+				part tranformationFunction;
 			}
 			
-			part def 'Model Validation functionality'{
-				
-			}
+			part def 'Model Validation functionality';
 			
 			part def 'Code generation functionality'{
+				part 'Statechart source generation';
+				part 'Communication interface generation';
 				perform action GenerateCode;
 			}
 			
@@ -68,6 +65,7 @@ package Gamma{
 				then done;
 			}
 		}
+		
 		package AttributeDefinitions{
 			
 		}
@@ -90,14 +88,14 @@ package Gamma{
 		
 		package RequirementDefinitions{
 			requirement def <'1'> 'High-level support'{
-				doc /* The Gamma framework shall supports system design by the integration of high-level engineering modeling languages */
+				doc /* The Gamma framework shall support system design by the integration of high-level engineering modeling languages */
 			}
 		}
 	}
 	
 	package GammaConfigurations{
 		package GammaV2{
-			import Definitions::PartDefinitions::*;
+			import Definitions::*;
 			
 			part gamma{
 				part yakinduIntegraion{
